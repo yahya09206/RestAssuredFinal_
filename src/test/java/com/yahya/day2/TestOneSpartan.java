@@ -38,6 +38,7 @@ public class TestOneSpartan {
 
         Response response = get("http://44.211.192.252:8000/api/spartans/1 ");
         System.out.println("response.contentType() = " + response.contentType());
+        System.out.println("response.getContentType() = " + response.getContentType());
 
     }
 }
