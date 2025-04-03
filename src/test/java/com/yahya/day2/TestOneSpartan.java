@@ -57,5 +57,10 @@ public class TestOneSpartan {
 
         Response response = get("http://44.211.192.252:8000/api/spartans/1");
         response.prettyPrint();
+
+        System.out.println("response.path(\"id\") = " + response.path("id"));
+        System.out.println("response.path(\"name\") = " + response.path("name"));
+        System.out.println("response.path(\"gender\") = " + response.path("gender"));
+        System.out.println("response.path(\"phone\") = " + response.path("phone"));
     }
 }
