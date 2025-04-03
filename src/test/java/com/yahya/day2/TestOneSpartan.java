@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
+import io.restassured.http.*;
 
 public class TestOneSpartan {
 
@@ -41,6 +42,14 @@ public class TestOneSpartan {
         System.out.println("response.getContentType() = " + response.getContentType());
 
         Assertions.assertEquals("application/json", response.contentType());
+
+        System.out.println("ContentType.JSON = " + ContentType.JSON);
+        System.out.println("ContentType.XML = " + ContentType.XML);
+        System.out.println("ContentType.TEXT = " + ContentType.TEXT);
+
+        Assertions.assertEquals(ContentType.JSON.toString(), response.contentType());
+
+
 
     }
 }
