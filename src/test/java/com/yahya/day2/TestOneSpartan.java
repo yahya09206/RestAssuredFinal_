@@ -40,5 +40,7 @@ public class TestOneSpartan {
         System.out.println("response.contentType() = " + response.contentType());
         System.out.println("response.getContentType() = " + response.getContentType());
 
+        Assertions.assertEquals("application/json", response.contentType());
+
     }
 }
