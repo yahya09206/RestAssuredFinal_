@@ -53,7 +53,7 @@ public class TestOneSpartan {
     }
 
     @Test
-    public void testJSONBody(){
+    public void testJSONBody() {
 
         Response response = get("http://44.211.192.252:8000/api/spartans/1");
         response.prettyPrint();
@@ -67,5 +67,15 @@ public class TestOneSpartan {
         String myName = response.path("name");
         String myGender = response.path("gender");
         long myPhone = response.path("phone");
+
+        System.out.println("myPhone = " + myPhone);
+        System.out.println("myGender = " + myGender);
+        System.out.println("myId = " + myId);
+        System.out.println("myName = " + myName);
+
+        Assertions.assertEquals(1, myId);
+        Assertions.assertEquals("Meade", myName);
+        Assertions.assertEquals("Male", myGender);
+        Assertions.assertEquals(3584128232L, myPhone);
     }
 }
