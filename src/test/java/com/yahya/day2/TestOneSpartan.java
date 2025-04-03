@@ -46,10 +46,16 @@ public class TestOneSpartan {
         System.out.println("ContentType.JSON = " + ContentType.JSON);
         System.out.println("ContentType.XML = " + ContentType.XML);
         System.out.println("ContentType.TEXT = " + ContentType.TEXT);
+        System.out.println("ContentType.URLENC = " + ContentType.URLENC);
 
         Assertions.assertEquals(ContentType.JSON.toString(), response.contentType());
 
+    }
 
+    @Test
+    public void testJSONBody(){
 
+        Response response = get("http://44.211.192.252:8000/api/spartans/1");
+        response.prettyPrint();
     }
 }
