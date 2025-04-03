@@ -17,6 +17,19 @@ public class TestOneSpartan2 {
         RestAssured.basePath = "/api";
     }
 
+    @Test
+    public void testHello(){
+
+        Response response = get("/hello");
+        System.out.println("response.statusCode() = " + response.statusCode());
+
+        String responseBody = response.getBody().asString();
+        response.prettyPrint();
+
+        Assertions.assertEquals("Hello from Sparta", responseBody);
+        Assertions.assertEquals(200, response.statusCode());
+    }
+
 
     @Test
     public void testOneSpartan() {
