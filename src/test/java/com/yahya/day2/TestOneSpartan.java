@@ -32,4 +32,12 @@ public class TestOneSpartan {
         Assertions.assertEquals(200, response.statusCode());
 
     }
+
+    @Test
+    public void testContentType(){
+
+        Response response = get("http://44.211.192.252:8000/api/spartans/1 ");
+        System.out.println("response.contentType() = " + response.contentType());
+
+    }
 }
