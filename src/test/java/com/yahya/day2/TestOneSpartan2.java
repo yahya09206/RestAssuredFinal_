@@ -13,7 +13,7 @@ public class TestOneSpartan2 {
 
     @BeforeAll
     public static void setUp() {
-        RestAssured.baseURI = "http://127.0.0.1:8080";
+        RestAssured.baseURI = "http://44.211.192.252:8000";
         RestAssured.basePath = "/api";
     }
 
@@ -21,7 +21,7 @@ public class TestOneSpartan2 {
     @Test
     public void testOneSpartan() {
 
-        Response response = get("spartans/1 ");
+        Response response = get("spartans/1");
         System.out.println("response.statusCode() = " + response.statusCode());
 
         response.prettyPrint();
