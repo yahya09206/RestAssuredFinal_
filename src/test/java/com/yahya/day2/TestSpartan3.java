@@ -27,10 +27,14 @@ public class TestSpartan3 {
     public void testAllSpartan() {
 
         Response response = get("/spartans");
-        response.prettyPrint();
+        //response.prettyPrint();
 
         Assertions.assertEquals(200, response.getStatusCode());
         Assertions.assertEquals(ContentType.JSON.toString(), response.getContentType());
+
+        System.out.println("response.path(\"[0].gender\") = " + response.path("[0].gender"));
+
+        System.out.println("response.path(\"gender[0]\") = " + response.path("gender[0]"));
     }
 
 }
