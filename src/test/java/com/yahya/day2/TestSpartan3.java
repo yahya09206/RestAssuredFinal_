@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.*;
+
 
 public class TestSpartan3 {
 
@@ -46,7 +47,10 @@ public class TestSpartan3 {
     @Test
     public void testGetXMLResponse(){
 
+        Response response = given().header("Accept", "application/xml").
+                when().get("/spartans");
 
+        response.prettyPrint();
     }
 
 }
