@@ -42,4 +42,11 @@ public class TestSpartan3 {
         List<Integer> idList = response.path("id");
         System.out.println("idList = " + idList);
     }
+
+    @Test
+    public void testGetXMLResponse(){
+
+
+    }
+
 }
