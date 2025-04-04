@@ -64,5 +64,11 @@ public class TestSpartan3 {
                 when().get("/spartans/search");
 
         response.prettyPrint();
+
+        System.out.println("response.path(\"totalElement\") = " + response.path("totalElement"));
+        System.out.println("response.path(\"content[0].name\") = " + response.path("content[0].name"));
+        System.out.println("response.path(\"content[1].name\") = " + response.path("content[1].name"));
+        List<String> allNames = response.path("content.name");
+        System.out.println("allNames = " + allNames);
     }
 }
