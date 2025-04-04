@@ -78,7 +78,7 @@ public class TestSpartan3 {
     public void testOneSpartanPathParam(){
 
         Response response = given()
-                .pathParam("id", 1).
+                .pathParam("id", 1).log().all().
                 when().get("/spartans/{id}");
 
         response.prettyPrint();
