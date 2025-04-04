@@ -49,8 +49,9 @@ public class TestSpartan3 {
 
         Response response = given().header("Accept", "application/xml").
                 when().get("/spartans");
-
         response.prettyPrint();
-    }
 
+        Assertions.assertEquals(200, response.getStatusCode());
+        Assertions.assertEquals(ContentType.XML.toString(), response.getContentType());
+    }
 }
