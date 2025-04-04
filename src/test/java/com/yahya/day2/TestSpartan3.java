@@ -1,6 +1,7 @@
 package com.yahya.day2;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -29,6 +30,7 @@ public class TestSpartan3 {
         response.prettyPrint();
 
         Assertions.assertEquals(200, response.getStatusCode());
+        Assertions.assertEquals(ContentType.JSON.toString(), response.getContentType());
     }
 
 }
