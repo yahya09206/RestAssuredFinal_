@@ -71,4 +71,16 @@ public class TestSpartan3 {
         List<String> allNames = response.path("content.name");
         System.out.println("allNames = " + allNames);
     }
+
+    // GET http://44.211.192.252:8000/api/spartans/1
+    // GET /api/spartans/{id}
+    @Test
+    public void testOneSpartanPathParam(){
+
+        Response response = given()
+                .pathParam("id", 1).
+                when().get("/spartans/{id}");
+
+        response.prettyPrint();
+    }
 }
