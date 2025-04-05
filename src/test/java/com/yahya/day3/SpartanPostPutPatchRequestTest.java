@@ -47,6 +47,7 @@ public class SpartanPostPutPatchRequestTest extends SpartanTestBase {
         given().log().all().contentType(ContentType.JSON)
                 .body(body).
                 when().post("/spartans").
-                then().log().all().statusCode(201);
+                then().log().all().statusCode(201)
+                .contentType(ContentType.JSON);
     }
 }
