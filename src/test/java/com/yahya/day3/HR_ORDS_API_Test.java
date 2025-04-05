@@ -43,4 +43,19 @@ public class HR_ORDS_API_Test {
         System.out.println("response.path(\"items.min_salary[3]\") = " + response.path("items.min_salary[3]"));
         System.out.println("allJobIDs = " + allJobIDs);
     }
+
+    @Test
+    public void testJobsWithQueryParam(){
+
+        Response response = given().log().all().queryParam("limit", 5).
+                when().get("/jobs");
+
+        response.prettyPrint();
+
+        int actualCount = response.path("count");
+        String lastJobTitle = response.path("items.job_id[-1]");
+
+        Assertions.assertEquals(5, actualCount);
+        Assertions.assertEquals("AD_VP", lastJobTitle);
+    }
 }
