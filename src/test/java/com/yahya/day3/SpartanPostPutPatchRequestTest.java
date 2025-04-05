@@ -48,6 +48,8 @@ public class SpartanPostPutPatchRequestTest extends SpartanTestBase {
                 .body(body).
                 when().post("/spartans").
                 then().log().all().statusCode(201)
-                .contentType(ContentType.JSON);
+                .contentType(ContentType.JSON)
+                .body("success", is("A Spartan is Born!"))
+                .body("data.name", is("Meade2"));
     }
 }
