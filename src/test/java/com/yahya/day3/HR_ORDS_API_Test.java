@@ -57,5 +57,7 @@ public class HR_ORDS_API_Test {
 
         Assertions.assertEquals(5, actualCount);
         Assertions.assertEquals("AD_VP", lastJobTitle);
+
+        System.out.println("lastJobTitle = " + lastJobTitle);
     }
 }
