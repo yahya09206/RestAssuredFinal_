@@ -26,6 +26,5 @@ public class TestSpartanApi {
         // Assert that response code is indeed a 200 using Assertions class
         Assertions.assertEquals(200, response.statusCode());
 
-
     }
 }
