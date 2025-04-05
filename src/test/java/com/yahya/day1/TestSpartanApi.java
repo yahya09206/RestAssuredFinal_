@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.*;
 public class TestSpartanApi {
 
     @Test
-    public void test(){
+    public void testHello(){
         System.out.println("Hello World");
 
         // Send request to below url and save the response
