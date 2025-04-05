@@ -24,7 +24,7 @@ public class SpartanMethodChain extends SpartanTestBase {
          */
         given().log().all().pathParam("id", 1).accept(ContentType.JSON).
                 when().get("/spartans/{id}").
-                then().statusCode(200)
+                then().log().all().statusCode(200)
                 .header("Content-Type", "application/json")
                 .body("id", is(1))
                 .body("name", is("Meade"));
