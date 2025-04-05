@@ -60,4 +60,14 @@ public class HR_ORDS_API_Test {
 
         System.out.println("lastJobTitle = " + lastJobTitle);
     }
+
+    @Test
+    public void testSingleJobWithParam(){
+
+        Response response = given().log().all().queryParam(ContentType.JSON.toString()).when().get("jobs/AD_VP");
+        String jobTitle = response.path("job_title");
+
+        Assertions.assertEquals(ContentType.JSON.toString(), "application/json");
+        Assertions.assertEquals("Administration Vice President", jobTitle);
+    }
 }
