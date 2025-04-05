@@ -64,8 +64,10 @@ public class HR_ORDS_API_Test {
     @Test
     public void testSingleJobWithParam(){
 
-        Response response = given().log().all().queryParam("job_id", "AD_VP").when().get("jobs/AD_VP");
+        Response response = given().log().all().pathParam("job_id", "AD_VP").when().get("jobs/{job_id}");
         String jobTitle = response.path("job_title");
+
+        response.prettyPrint();
 
         Assertions.assertEquals(ContentType.JSON.toString(), "application/json");
         Assertions.assertEquals("Administration Vice President", jobTitle);
