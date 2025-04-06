@@ -38,6 +38,8 @@ public class LibraryAppTest {
 
         given().log().all().contentType(ContentType.URLENC).
                 formParam("email", "librarian5@library").
-                formParam("password", "libraryUser")
+                formParam("password", "libraryUser").
+                when().post("login")
+                .then().log().all().statusCode(200);
     }
 }
