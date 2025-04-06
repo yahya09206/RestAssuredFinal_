@@ -2,6 +2,7 @@ package com.yahya.day4;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -40,6 +41,27 @@ public class LibraryAppTest {
                 formParam("email", "librarian5@library").
                 formParam("password", "libraryUser").
                 when().post("login")
+                .then().log().all().statusCode(200);
+    }
+
+    @Test
+    public void testDashboardStats(){
+
+        Response response = given().log().all().contentType(ContentType.URLENC).
+                formParam("email", "librarian5@library").
+                formParam("password", "libraryUser").
+                when().post("login");
+
+        String tokenFromResponse = response.path("token");
+        System.out.println("tokenFromResponse = " + tokenFromResponse);
+
+        /*
+        Send request to GET /dashboard_stat
+        provide header with the name x-library-token, value is the value you saved from response request
+        Verify status code is 200
+         */
+        given().log().all().header("x-library-token", tokenFromResponse).
+                when().get("/dashboard-stats")
                 .then().log().all().statusCode(200);
     }
 }
