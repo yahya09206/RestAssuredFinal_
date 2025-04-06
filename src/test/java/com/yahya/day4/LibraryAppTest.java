@@ -1,6 +1,7 @@
 package com.yahya.day4;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -35,6 +36,8 @@ public class LibraryAppTest {
     @Test
     public void testLogin(){
 
-
+        given().log().all().contentType(ContentType.URLENC).
+                formParam("email", "librarian5@library").
+                formParam("password", "libraryUser")
     }
 }
