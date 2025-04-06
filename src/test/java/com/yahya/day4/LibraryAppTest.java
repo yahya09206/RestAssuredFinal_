@@ -3,6 +3,7 @@ package com.yahya.day4;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -31,5 +32,9 @@ public class LibraryAppTest {
      *  password: libraryUser
      */
 
+    @Test
+    public void testLogin(){
 
+
+    }
 }
