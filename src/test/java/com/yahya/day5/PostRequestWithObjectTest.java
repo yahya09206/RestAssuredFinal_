@@ -46,8 +46,9 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
         System.out.println(bodyMap);
 
         // Send POST request
+        // Add Jackson Data-Binding dependency
         given().log().all().contentType(ContentType.JSON).body(bodyMap).
-                when().post("/post").then().statusCode(200);
+                when().post("/post").then().statusCode(201);
 
     }
 }
