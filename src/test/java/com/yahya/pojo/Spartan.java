@@ -4,7 +4,7 @@ public class Spartan {
 
     private String name;
     private String gender;
-    private long phoneNumber;
+    private long phone;
 
     public Spartan() {
     }
@@ -12,7 +12,7 @@ public class Spartan {
     public Spartan(String name, String gender, long phoneNumber) {
         this.name = name;
         this.gender = gender;
-        this.phoneNumber = phoneNumber;
+        this.phone = phoneNumber;
     }
 
     public String getName() {
@@ -31,12 +31,12 @@ public class Spartan {
         this.gender = gender;
     }
 
-    public long getPhoneNumber() {
-        return phoneNumber;
+    public long getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(long phone) {
+        this.phone = phone;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Spartan {
         return "Spartan{" +
                 "name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                ", phoneNumber=" + phone +
                 '}';
     }
 }
