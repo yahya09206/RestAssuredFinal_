@@ -41,14 +41,14 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
         Map<String, Object> bodyMap = new LinkedHashMap<>();
         bodyMap.put("name", "API POST2");
         bodyMap.put("gender", "Male");
-        bodyMap.put("phone", "A3584128232");
+        bodyMap.put("phone", "3584128232");
 
         System.out.println(bodyMap);
 
         // Send POST request
         // Add Jackson Data-Binding dependency
         given().log().all().contentType(ContentType.JSON).body(bodyMap).
-                when().post("/post").then().statusCode(201);
+                when().post("/spartans").then().log().all().statusCode(201);
 
     }
 }
