@@ -38,6 +38,8 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
     @Test
     public void testPostWithMap(){
 
+
+
         Map<String, Object> bodyMap = new LinkedHashMap<>();
         bodyMap.put("name", "API POST2");
         bodyMap.put("gender", "Male");
