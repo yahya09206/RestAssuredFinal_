@@ -6,6 +6,9 @@ public class Spartan {
     private String gender;
     private long phoneNumber;
 
+    public Spartan() {
+    }
+
     public Spartan(String name, String gender, long phoneNumber) {
         this.name = name;
         this.gender = gender;
@@ -34,5 +37,14 @@ public class Spartan {
 
     public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Spartan{" +
+                "name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                '}';
     }
 }
