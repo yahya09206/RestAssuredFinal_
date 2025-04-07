@@ -71,4 +71,17 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
                 then().log().all().statusCode(201);
 
     }
+
+    @Test
+    public void testUpdateOneDataWithRandomBody(){
+
+        int lastId = get("/spartans").path("id[-1]");
+        System.out.println("lastId = " + lastId);
+
+        // prepare updated body
+        Map<String, Object> updatedBodyMap = SpartanUtil.getRandomSpartanBody();
+
+        given().log().all().pathParam("id", lastId).contentType(ContentType.JSON).body(updatedBodyMap)
+                .when().put("/spartans/{id}").then().log().all().statusCode(204);
+    }
 }
