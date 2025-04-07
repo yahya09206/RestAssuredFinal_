@@ -1,6 +1,7 @@
 package com.yahya.day5;
 
 import com.yahya.utility.SpartanTestBase;
+import com.yahya.utility.SpartanUtil;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
@@ -51,6 +52,23 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
         // Add Jackson Data-Binding dependency
         given().log().all().contentType(ContentType.JSON).body(bodyMap).
                 when().post("/spartans").then().log().all().statusCode(201);
+
+    }
+
+    @Test
+    public void testPostWithMapWithRandomData(){
+
+
+
+        Map<String, Object> bodyMap = SpartanUtil.getRandomSpartanBody();
+
+        System.out.println(bodyMap);
+
+        // Send POST request
+        // Add Jackson Data-Binding dependency
+        given().log().all().contentType(ContentType.JSON).body(bodyMap).
+                when().post("/spartans").
+                then().log().all().statusCode(201);
 
     }
 }
