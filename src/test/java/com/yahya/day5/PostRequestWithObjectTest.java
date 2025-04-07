@@ -3,6 +3,9 @@ package com.yahya.day5;
 import com.yahya.utility.SpartanTestBase;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -34,6 +37,12 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
     @Test
     public void testPostWithMap(){
 
+        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("name", "API POST2");
+        bodyMap.put("gender", "Male");
+        bodyMap.put("phone", "A3584128232");
+
+        System.out.println(bodyMap);
 
     }
 }
