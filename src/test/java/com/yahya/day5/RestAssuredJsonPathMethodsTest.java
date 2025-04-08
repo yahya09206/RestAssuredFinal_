@@ -1,8 +1,15 @@
 package com.yahya.day5;
 
 import org.junit.jupiter.api.Test;
+import com.yahya.pojo.Spartan;
+import com.yahya.utility.SpartanTestBase;
+import com.yahya.utility.SpartanUtil;
+import io.restassured.http.ContentType;
 
-public class RestAssuredJsonPathMethodsTest {
+
+import static io.restassured.RestAssured.*;
+
+public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
 
     /**
      * There are two ways to get the response and extract the json data
@@ -30,6 +37,8 @@ public class RestAssuredJsonPathMethodsTest {
     @Test
     public void testOneSpartan(){
 
-        // Get the first id
+        // Get the id of the first spartan
+        int firstId = get("/spartans").path("id[0]");
+        System.out.println("firstId = " + firstId);
     }
 }
