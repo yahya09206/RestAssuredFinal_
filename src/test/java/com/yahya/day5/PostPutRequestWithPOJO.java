@@ -30,4 +30,6 @@ public class PostPutRequestWithPOJO extends SpartanTestBase {
                 when().post("/spartans").
                 then().log().all().statusCode(201);
     }
+
+
 }
