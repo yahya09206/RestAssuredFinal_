@@ -1,5 +1,6 @@
 package com.yahya.day5;
 
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import com.yahya.pojo.Spartan;
 import com.yahya.utility.SpartanTestBase;
@@ -40,5 +41,13 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         // Get the id of the first spartan
         int firstId = get("/spartans").path("id[0]");
         System.out.println("firstId = " + firstId);
+
+        // Send request to GET /spartan/{id}
+        // Only log the requested url
+        Response response = given().log().uri().pathParam("id", firstId).
+                when().get("/spartans/{id}").prettyPeek();
+
+        // Save the id from the response
+
     }
 }
