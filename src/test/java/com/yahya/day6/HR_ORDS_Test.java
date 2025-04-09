@@ -23,5 +23,7 @@ public class HR_ORDS_Test extends HRORDSTestBase {
          */
         Jobs jobs1 = jsonPath.getObject("items[0]", Jobs.class);
         System.out.println("jobs1 = " + jobs1);
+
+        // Save all results into List<Jobs>
     }
 }
