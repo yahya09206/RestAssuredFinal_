@@ -53,7 +53,16 @@ public class FormulaOneApiTest {
         System.out.println("driver = " + driver);
 
         // all driver
-        List<Driver> allDrivers = jsonPath.getList("MRData.DriverTable.Drivers");
+        List<Driver> allDrivers = jsonPath.getList("MRData.DriverTable.Drivers", Driver.class);
         System.out.println("allDrivers = " + allDrivers);
+
+        // loop through list of driver and print if nationality is italian
+        for (Driver eachDriver : allDrivers) {
+            if (eachDriver.getNationality().equals("Italian")){
+                System.out.println("eachDriver.getGivenName() = " + eachDriver.getGivenName());
+            }
+        }
+
+
     }
 }
