@@ -105,7 +105,16 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         System.out.println("getSecond = " + firstJsonAsMap);
 
         // Get the name of all the spartans and save it into a list of strings : content.name
-        List<String> allNames = jsonPath.getList("content.name");
+        // List<String> allNames = jsonPath.getList("content.name");
+        // in this version of getList method , you have option to make it obvious
+        // to specify the class type you want each item to have as List item data type
+        List<String> allNames = jsonPath.getList("content.name", String.class);
         System.out.println("allNames = " + allNames);
+
+        // save all phone number into the list and make it obvious what kind of list you want to get
+        List<Long> allNumbers = jsonPath.getList("content.phone", Long.class);
+        System.out.println("allNumbers = " + allNumbers);
+
+
     }
 }
