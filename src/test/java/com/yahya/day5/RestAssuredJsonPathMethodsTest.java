@@ -9,6 +9,7 @@ import com.yahya.utility.SpartanUtil;
 import io.restassured.http.ContentType;
 
 
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
@@ -81,6 +82,7 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
     // get 3rd element phone using getX method
     // get last element name using getX method
     // save first json in json array into Map using getX method
+    // Get the name of all the spartans and save it into a list : content.name
     // remember getX("your path to the element goes here just like xpath")
     @Test
     public void testSearchExtractData(){
@@ -93,6 +95,17 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         JsonPath jsonPath = response.jsonPath();
         int myTotal = jsonPath.getInt("totalElement");
         System.out.println("myTotal = " + myTotal);
-    }
+        long myPhone = jsonPath.getLong("content[2].phone");
+        System.out.println("myPhone = " + myPhone);
 
+        String lastName = jsonPath.getString("content[-1].name");
+        System.out.println("lastName = " + lastName);
+
+        Map<String, Object> firstJsonAsMap = jsonPath.getMap("content[0]");
+        System.out.println("getSecond = " + firstJsonAsMap);
+
+        // Get the name of all the spartans and save it into a list of strings : content.name
+        List<String> allNames = jsonPath.getList("content.name");
+        System.out.println("allNames = " + allNames);
+    }
 }
