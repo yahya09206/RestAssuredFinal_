@@ -9,6 +9,8 @@ import com.yahya.utility.SpartanUtil;
 import io.restassured.http.ContentType;
 
 
+import java.util.Map;
+
 import static io.restassured.RestAssured.*;
 
 public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
@@ -51,7 +53,7 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         // Save the id from the response
         // int myId = response.path("id");
 
-        // Get JsonPath object out of response object
+        // Get JsonPath object out of response
         JsonPath jsonPath = response.jsonPath();
         // Get id using getInt()
         int myId = jsonPath.getInt("id");
@@ -63,6 +65,13 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         System.out.println("myGender = " + myGender);
         System.out.println("phoneNumber = " + phoneNumber);
 
+        /**
+         * Store json result into Map object
+         * The path to get the entire body is an empty string because the response is already a json object
+         * No need to navigate
+         */
+        Map<String, Object> responseBodyAsMap = jsonPath.getMap("");
+        System.out.println("responseBodyAsMap = " + responseBodyAsMap);
 
     }
 }
