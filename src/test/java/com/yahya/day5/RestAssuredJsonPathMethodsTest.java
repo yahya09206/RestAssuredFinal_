@@ -90,7 +90,9 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
 
         Response response = given().log().uri().queryParams("nameContains", "Ea").
                 queryParams("gender", "Male").
-                when().get("/spartans/search").prettyPeek();
+                when().get("/spartans/search")
+                //.prettyPeek()
+                ;
 
         // Get jsonpath object out of response
         JsonPath jsonPath = response.jsonPath();
@@ -133,5 +135,7 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         System.out.println("spartanWithID1 = " + spartanWithID1);
 
 
+        List<SpartanWithID> allSpartanWithIDs = jsonPath.getList("content", SpartanWithID.class);
+        System.out.println("allSpartanWithIDs = " + allSpartanWithIDs);
     }
 }
