@@ -1,11 +1,17 @@
 package com.yahya.pojo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class OMDB {
 
+    @JsonProperty("Title")
     private String title;
+    @JsonProperty("Year")
     private String year;
     private String imdbID;
+    @JsonProperty("Type")
     private String type;
+    @JsonProperty("Poster")
     private String poster;
 
     public String getTitle() {
