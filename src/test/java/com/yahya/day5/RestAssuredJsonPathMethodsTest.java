@@ -55,9 +55,13 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         JsonPath jsonPath = response.jsonPath();
         // Get id using getInt()
         int myId = jsonPath.getInt("id");
-        String myMame = jsonPath.getString("name");
+        String myName = jsonPath.getString("name");
         String myGender = jsonPath.getString("gender");
         long phoneNumber = jsonPath.getLong("phone");
+        System.out.println("myId = " + myId);
+        System.out.println("myName = " + myName);
+        System.out.println("myGender = " + myGender);
+        System.out.println("phoneNumber = " + phoneNumber);
 
 
     }
