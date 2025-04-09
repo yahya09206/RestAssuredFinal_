@@ -1,5 +1,7 @@
 package com.yahya.day6;
 
+import com.yahya.pojo.OMDB;
+import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,8 +23,12 @@ public class MovieApiTest {
     @Test
     public void testMovies(){
 
-        given().log().uri().queryParam("apikey", "f90e5bb4").
+        JsonPath jsonPath = given().log().uri().queryParam("apikey", "f90e5bb4").
                 queryParam("s", "The Mandalorian").
-                when().get("").prettyPeek();
+                when().get("").prettyPeek().jsonPath();
+
+        // Get first movie object saved inside of "Search" array Search[0]
+        OMDB omdb1 = jsonPath.getObject("Search[0]", OMDB.class);
+        System.out.println("omdb1 = " + omdb1);
     }
 }

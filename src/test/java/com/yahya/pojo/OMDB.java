@@ -2,26 +2,26 @@ package com.yahya.pojo;
 
 public class OMDB {
 
-    private String Title;
-    private String Year;
+    private String title;
+    private String year;
     private String imdbID;
-    private String Type;
-    private String Poster;
+    private String type;
+    private String poster;
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(String year) {
-        Year = year;
+        this.year = year;
     }
 
     public String getImdbID() {
@@ -33,29 +33,29 @@ public class OMDB {
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     public String getPoster() {
-        return Poster;
+        return poster;
     }
 
     public void setPoster(String poster) {
-        Poster = poster;
+        this.poster = poster;
     }
 
     @Override
     public String toString() {
         return "OMDB{" +
-                "Title='" + Title + '\'' +
-                ", Year='" + Year + '\'' +
+                "Title='" + title + '\'' +
+                ", Year='" + year + '\'' +
                 ", imdbID='" + imdbID + '\'' +
-                ", Type='" + Type + '\'' +
-                ", Poster='" + Poster + '\'' +
+                ", Type='" + type + '\'' +
+                ", Poster='" + poster + '\'' +
                 '}';
     }
 }
