@@ -85,6 +85,14 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
     @Test
     public void testSearchExtractData(){
 
+        Response response = given().log().uri().queryParams("nameContains", "Ea").
+                queryParams("gender", "Male").
+                when().get("/spartans/search").prettyPeek();
+
+        // Get jsonpath object out of response
+        JsonPath jsonPath = response.jsonPath();
+        int myTotal = jsonPath.getInt("totalElement");
+        System.out.println("myTotal = " + myTotal);
     }
 
 }
