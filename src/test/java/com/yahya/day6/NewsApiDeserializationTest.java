@@ -5,6 +5,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import io.restassured.path.json.JsonPath;
+
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 
 
@@ -37,5 +40,19 @@ public class NewsApiDeserializationTest {
         // try to get first Article into POJO
         Article articleOne = jsonPath.getObject("articles[0]", Article.class);
         System.out.println("articleOne = " + articleOne);
+
+        // check if source id is null or not
+        // the source id is inside the source Map field
+        // we can use getter to private field to get the map
+        // the using this map use map get method to get the value of the key
+        System.out.println("articleOne.getSource().get(\"id\") = " + articleOne.getSource().get("id"));
+
+        List<Article> allArticles = jsonPath.getList("articles", Article.class);
+        for (Article allArticle : allArticles) {
+            if (allArticle.getSource().get("id") != null) {
+                System.out.println("allArticle.getAuthor() = " + allArticle.getAuthor());
+            }
+        }
+
     }
 }
