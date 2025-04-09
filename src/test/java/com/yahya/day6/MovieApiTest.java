@@ -27,7 +27,7 @@ public class MovieApiTest {
                 queryParam("s", "The Mandalorian").
                 when().get("").prettyPeek().jsonPath();
 
-        // Get first movie object saved inside of "Search" array Search[0]
+        // Get first movie object saved inside "Search" array Search[0]
         OMDB omdb1 = jsonPath.getObject("Search[0]", OMDB.class);
         System.out.println("omdb1 = " + omdb1);
     }
