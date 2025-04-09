@@ -115,6 +115,20 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         List<Long> allNumbers = jsonPath.getList("content.phone", Long.class);
         System.out.println("allNumbers = " + allNumbers);
 
+        // continue from this task : now try to match this json objects into POJO
+        // in order to match json result with 4 fields , you need to have POJO class with 4 matching fields
+        // create a class called SpartanWithID
+        // add encapsulated fields id, name , gender, phone
+        // add no arg constructor (no need for 4 args constructor because we don't create object ourselves)
+        // optionally add toString method so we can print it worked.
+        // now we can use  jp.getObject("the path here" , SpartanWithID.class)
+        // to save it into  SpartanWithID object  --> another de-serialization!
+
+        // store first json in the result as SpartanWithID POJO  : content[0]
+        // getObject method accept jsonPath to the jsonObject to be converted
+        // and the class type you want to convert to and return object of that type
+        // with all the field value already filled up by matching the key value
+
 
     }
 }
