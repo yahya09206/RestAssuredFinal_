@@ -1,5 +1,15 @@
 package com.yahya.day6;
 
+import com.yahya.pojo.Driver;
+import io.restassured.path.json.JsonPath;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+import static io.restassured.RestAssured.*;
+
 public class FormulaOneApiTest {
 
     /**
@@ -19,4 +29,31 @@ public class FormulaOneApiTest {
      *
      */
     // SEND GET http://ergast.com/api/f1/drivers.json
+    @BeforeAll
+    public static void init() {
+        baseURI = "http://ergast.com";
+        basePath = "/api/f1";
+    }
+
+    @AfterAll
+    public static void destroy() {
+        reset();
+    }
+
+    @Test
+    public void testDriverDeserialization(){
+
+        JsonPath jsonPath = get("/drivers.json")
+                //.prettyPeek()
+                .jsonPath();
+        System.out.println("jsonPath = " + jsonPath);
+
+        // first driver json path
+        Driver driver = jsonPath.getObject("MRData.DriverTable.Drivers[0]", Driver.class);
+        System.out.println("driver = " + driver);
+
+        // all driver
+        List<Driver> allDrivers = jsonPath.getList("MRData.DriverTable.Drivers");
+        System.out.println("allDrivers = " + allDrivers);
+    }
 }
