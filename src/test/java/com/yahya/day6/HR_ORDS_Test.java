@@ -7,6 +7,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 
 public class HR_ORDS_Test extends HRORDSTestBase {
@@ -14,7 +16,9 @@ public class HR_ORDS_Test extends HRORDSTestBase {
     @Test
     public void testJobs(){
 
-        JsonPath jsonPath = given().log().uri().when().get("/jobs").prettyPeek().jsonPath();
+        JsonPath jsonPath = given().log().uri().when().get("/jobs")
+                //.prettyPeek()
+                .jsonPath();
 
         /**
          * De-Serialize first json object from json array
@@ -25,5 +29,7 @@ public class HR_ORDS_Test extends HRORDSTestBase {
         System.out.println("jobs1 = " + jobs1);
 
         // Save all results into List<Jobs>
+        List<Jobs> allJobs = jsonPath.getList("items", Jobs.class);
+        System.out.println("allJobs = " + allJobs);
     }
 }
