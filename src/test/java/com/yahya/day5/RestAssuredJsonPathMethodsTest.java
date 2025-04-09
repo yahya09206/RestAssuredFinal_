@@ -129,7 +129,7 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         // getObject method accept jsonPath to the jsonObject to be converted
         // and the class type you want to convert to and return object of that type
         // with all the field value already filled up by matching the key value
-        SpartanWithID spartanWithID1 = jsonPath.getObject("content", SpartanWithID.class);
+        SpartanWithID spartanWithID1 = jsonPath.getObject("content[0]", SpartanWithID.class);
         System.out.println("spartanWithID1 = " + spartanWithID1);
 
 
