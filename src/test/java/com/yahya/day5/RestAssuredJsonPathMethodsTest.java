@@ -134,7 +134,7 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         SpartanWithID spartanWithID1 = jsonPath.getObject("content[0]", SpartanWithID.class);
         System.out.println("spartanWithID1 = " + spartanWithID1);
 
-
+        // Print all spartans using list of SpartanWithID
         List<SpartanWithID> allSpartanWithIDs = jsonPath.getList("content", SpartanWithID.class);
         System.out.println("allSpartanWithIDs = " + allSpartanWithIDs);
     }
