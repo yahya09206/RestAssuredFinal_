@@ -74,4 +74,17 @@ public class RestAssuredJsonPathMethodsTest extends SpartanTestBase {
         System.out.println("responseBodyAsMap = " + responseBodyAsMap);
 
     }
+
+    // Send Request GET /spartans/search?nameContains=Ea&gender=Male
+    // get JsonPath object out of response so you can use specialized methods
+    // get totalElement field value using getX method
+    // get 3rd element phone using getX method
+    // get last element name using getX method
+    // save first json in json array into Map using getX method
+    // remember getX("your path to the element goes here just like xpath")
+    @Test
+    public void testSearchExtractData(){
+
+    }
+
 }
