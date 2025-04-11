@@ -47,6 +47,7 @@ public class NewsApiDeserializationTest {
         // the using this map use map get method to get the value of the key
         System.out.println("articleOne.getSource().get(\"id\") = " + articleOne.getSource().get("id"));
 
+
         List<Article> allArticles = jsonPath.getList("articles", Article.class);
         for (Article allArticle : allArticles) {
             if (allArticle.getSource().get("id") != null) {
