@@ -48,6 +48,7 @@ public class NewsApiDeserializationTest {
         System.out.println("articleOne.getSource().get(\"id\") = " + articleOne.getSource().get("id"));
 
 
+        // Storing in a list and printing all articles if not null
         List<Article> allArticles = jsonPath.getList("articles", Article.class);
         for (Article allArticle : allArticles) {
             if (allArticle.getSource().get("id") != null) {
