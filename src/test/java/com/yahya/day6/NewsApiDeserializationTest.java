@@ -51,6 +51,7 @@ public class NewsApiDeserializationTest {
         // Storing in a list and printing all articles if not null
         List<Article> allArticles = jsonPath.getList("articles", Article.class);
         for (Article allArticle : allArticles) {
+            // check if source is null
             if (allArticle.getSource().get("id") != null) {
                 System.out.println("allArticle.getAuthor() = " + allArticle.getAuthor());
             }
