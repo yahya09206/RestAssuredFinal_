@@ -53,6 +53,7 @@ public class NewsApiDeserializationTest {
         for (Article allArticle : allArticles) {
             // check if source is null
             if (allArticle.getSource().get("id") != null) {
+                // print out name of author
                 System.out.println("allArticle.getAuthor() = " + allArticle.getAuthor());
             }
         }
