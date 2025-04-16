@@ -14,8 +14,7 @@ import java.util.Map;
  *             "title": "GOP holdouts headed to White House to talk budget - Politico",
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
