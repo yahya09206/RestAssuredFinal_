@@ -20,6 +20,7 @@ import java.util.Map;
 @ToString
 public class Article {
 
+    // Fields for article
     private Map<String, Object> source;
     private String author;
     private String title;
